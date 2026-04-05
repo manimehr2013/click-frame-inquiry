@@ -546,6 +546,12 @@
         font-size: 14px;
         color: #c46749;
       }
+      .option-btn.selected {
+  background: #cc3300 !important;
+  color: #fff !important;
+  transform: scale(0.98);
+  opacity: 1;
+}
     }
   </style>
 </head>
@@ -699,27 +705,30 @@
 
       const optionButtons = document.querySelectorAll(".option-btn");
 
-      optionButtons.forEach(button => {
-        button.addEventListener("click", (event) => {
-          const clickedButton = event.currentTarget;
+optionButtons.forEach(button => {
+  button.addEventListener("click", (event) => {
+    const clickedButton = event.currentTarget;
 
-          optionButtons.forEach(btn => {
-            btn.disabled = true;
-            btn.style.pointerEvents = "none";
-          });
+    // disable all buttons
+    optionButtons.forEach(btn => {
+      btn.disabled = true;
+      btn.style.pointerEvents = "none";
+      btn.classList.remove("selected");
+    });
 
-          clickedButton.blur();
+    // show selection visually
+    clickedButton.classList.add("selected");
+    clickedButton.blur();
 
-          state[stateKey] = clickedButton.getAttribute("data-value");
+    state[stateKey] = clickedButton.getAttribute("data-value");
 
-          requestAnimationFrame(() => {
-            setTimeout(() => {
-              state.currentStep += 1;
-              renderStep();
-            }, 20);
-          });
-        });
-      });
+    // short delay so user sees selection
+    setTimeout(() => {
+      state.currentStep += 1;
+      renderStep();
+    }, 180);
+  });
+});
 
       document.getElementById("back-button").addEventListener("click", (event) => {
         event.currentTarget.blur();
