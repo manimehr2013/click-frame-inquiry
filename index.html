@@ -430,6 +430,9 @@
         font-size: 10px;
         color: #c46749;
       }
+		.option-btn {
+ 		 -webkit-tap-highlight-color: transparent;
+		}
     }
 
     @media (min-width: 481px) and (max-width: 768px) {
@@ -670,13 +673,15 @@
         <a href="https://clickandframe.com/start" class="back-button" role="link" aria-label="Back to Start page" style="color: #c46749; font-size: 10px;" target="_blank" rel="noopener noreferrer">Having Trouble? Use the Form</a>
       `;
 
-      document.querySelectorAll(".option-btn").forEach(button => {
-        button.addEventListener("click", () => {
-          state[stateKey] = button.getAttribute("data-value");
-          state.currentStep += 1;
-          renderStep();
-        });
-      });
+document.querySelectorAll(".option-btn").forEach(button => {
+	button.addEventListener("click", () => {
+ 		button.blur(); // 👈 ADD THIS LINE
+
+		state[stateKey] = button.getAttribute("data-value");
+		state.currentStep += 1;
+		renderStep();
+	});
+});
 
       document.getElementById("back-button").addEventListener("click", () => {
         state.currentStep -= 1;
