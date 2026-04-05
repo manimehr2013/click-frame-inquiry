@@ -502,6 +502,13 @@
   color: #fff !important;
   transform: scale(0.98);
 }
+      .option-btn {
+  transition: transform 0.08s ease, background 0.15s ease;
+}
+
+.option-btn:active {
+  transform: scale(0.96);
+}
     }
 
     @media screen and (orientation: landscape) and (max-height: 500px) {
@@ -729,7 +736,7 @@ function renderOptionsStep(stepNumber, questionTitle, options, stateKey, note = 
         clickedButton.blur();
         state.currentStep += 1;
         renderStep();
-      }, 280);
+      }, 200);
     });
   });
 
