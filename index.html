@@ -9,6 +9,9 @@
                maximum-scale=1.0,
                user-scalable=no">
   <meta name="description" content="Discover Austin’s Click & Frame for documentary & video production. Explore your options in 30 seconds.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="https://images.squarespace-cdn.com/content/678bfe166e648e33c9788a6c/3eb0cef0-42fb-4fa5-a6d4-6151639240ca/logo+final+final-06.png" sizes="32x32">
   <link rel="apple-touch-icon" href="https://images.squarespace-cdn.com/content/678bfe166e648e33c9788a6c/3eb0cef0-42fb-4fa5-a6d4-6151639240ca/logo+final+final-06.png" sizes="180x180">
   <title>Explore Your Options - Click & Frame</title>
@@ -29,22 +32,22 @@
     }
 
     body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      background-image: url('https://images.squarespace-cdn.com/content/678bfe166e648e33c9788a6c/bc78b4ef-b335-4042-a721-0dc7ea63f059/Doc+page+background.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      color: #ffffff;
-      position: relative;
-      width: 100vw;
-      padding: 20px;
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-image: url('https://images.squarespace-cdn.com/content/678bfe166e648e33c9788a6c/bc78b4ef-b335-4042-a721-0dc7ea63f059/Doc+page+background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #ffffff;
+  position: relative;
+  width: 100vw;
+  padding: 20px;
+}
 
     .logo {
       position: absolute;
@@ -114,25 +117,30 @@
     }
 
     .hero-title {
-      font-size: 28px;
-      line-height: 1.2;
-      margin: 0 0 14px 0;
-      font-weight: 700;
-      color: #111;
-    }
+      max-width: 420px;
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 0 0 16px 0;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
 
-    .hero-text {
-      font-size: 16px;
-      margin: 0 0 18px 0;
-      color: #333;
-    }
+.hero-text {
+  font-size: 16px;
+  margin: 0 0 20px 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+}
 
     .hero-highlight {
-      font-size: 15px;
-      font-weight: 600;
-      margin: 0 0 8px 0;
-      color: #E63900;
-    }
+  font-size: 16px;
+  font-weight: 700;
+  margin: 8px 0;
+  color: #E63900;
+  letter-spacing: 0.4px;
+}
 
     .hero-subtle {
       font-size: 14px;
