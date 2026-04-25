@@ -145,13 +145,13 @@
     .hero-text {
       font-size: 16px;
       margin: 0 0 10px 0;
-      color: #444;
-      font-weight: 400;
+      color: #000;
+      font-weight: 600;
     }
 
     .hero-highlight {
       font-size: 16px;
-      font-weight: 700;
+      font-weight: 800;
       margin: 10px 0 0 0;
       color: #E63900;
       letter-spacing: 0.4px;
@@ -351,18 +351,29 @@
 
       <div id="page-content">
         <div class="content-box" role="region" aria-live="polite">
-          <h1 class="hero-title">TURN YOUR STORY INTO A FILM THAT DRIVES REAL IMPACT</h1>
-          <p class="hero-text">Cinematic video production for nonprofits, artists, and brands.</p>
+          <h1 class="hero-title">CINEMATIC STORYTELLING FOR ARTISTS, BRANDS, AND ORGANIZATIONS</h1>
+          <p class="hero-text">Crafted films designed to connect with people and leave a lasting impression.</p>
         
-          <p class="hero-highlight">LIMITED AVAILABILITY: 50% OFF SELECT PROJECTS</p>
-          <p class="hero-highlight">FLEXIBLE 0% PAYMENT PLANS AVAILABLE</p>
+        <p class="hero-highlight" style="margin-bottom: 0;">LIMITED AVAILABILITY: 50% OFF SELECT PROJECTS</p>
+        <p class="hero-highlight" style="margin-top: 0;">FLEXIBLE 0% PAYMENT PLANS AVAILABLE</p>
           <p class="hero-subtle">Enter your email to get pricing, examples, and your discount details.</p>
         </div>
 
         <div class="form-wrap">
           <form id="email-form" novalidate>
             <div class="field-group">
-              <label for="email">Email</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="single-input"
+                placeholder="Your name"
+                autocomplete="name"
+                required
+              >
+            </div>
+
+            <div class="field-group" style="margin-top: 14px;">
               <input
                 type="email"
                 id="email"
@@ -450,8 +461,15 @@
       event.preventDefault();
       clearError();
 
+      const nameInput = document.getElementById("name");
       const emailInput = document.getElementById("email");
+      const name = nameInput.value.trim();
       const email = emailInput.value.trim();
+
+      if (!name) {
+        showError("Please enter your name.");
+        return;
+      }
 
       if (!email) {
         showError("Please enter your email.");
@@ -468,7 +486,7 @@
         submitted_at: new Date().toISOString(),
         source: "clickandframe-multistep-form",
         email: email,
-        name: "",
+        name: name,
         phone: "",
         location: "",
         goal: "",
