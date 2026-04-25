@@ -195,6 +195,13 @@
       color: #666;
     }
 
+    .honeypot-field {
+      position: absolute;
+      left: -9999px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
     .button-row {
       display: flex;
       gap: 10px;
@@ -463,8 +470,14 @@
 
       const nameInput = document.getElementById("name");
       const emailInput = document.getElementById("email");
+      const honeypotInput = document.getElementById("website");
       const name = nameInput.value.trim();
       const email = emailInput.value.trim();
+      const website = honeypotInput.value.trim();
+
+      if (website) {
+        return;
+      }
 
       if (!name) {
         showError("Please enter your name.");
@@ -491,7 +504,8 @@
         location: "",
         goal: "",
         project_type: "",
-        extra_info: "Email-only offer page submission"
+        extra_info: "Email-only offer page submission",
+        website: website
       };
 
       try {
