@@ -393,6 +393,18 @@
               >
             </div>
 
+            <div class="honeypot-field" aria-hidden="true">
+              <label for="website">Website</label>
+              <input
+                type="text"
+                id="website"
+                name="website"
+                class="single-input"
+                tabindex="-1"
+                autocomplete="off"
+              >
+            </div>
+
             <div class="button-row">
               <button type="submit" class="primary-button">Get My Discount</button>
             </div>
@@ -473,7 +485,7 @@
       const honeypotInput = document.getElementById("website");
       const name = nameInput.value.trim();
       const email = emailInput.value.trim();
-      const website = honeypotInput.value.trim();
+      const website = honeypotInput ? honeypotInput.value.trim() : "";
 
       if (website) {
         return;
