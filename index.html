@@ -541,15 +541,22 @@
           body: JSON.stringify(payload)
         });
 
-        if (!response.ok) {
-          throw new Error("Submission failed");
-        }
+     if (!response.ok) {
+  throw new Error("Submission failed");
+}
 
-        if (typeof fbq !== "undefined") {
-          fbq('track', 'Lead');
-        }
+if (typeof fbq !== "undefined") {
+  fbq("track", "Lead");
+}
 
-        renderSuccess();
+if (typeof gtag === "function") {
+  gtag("event", "conversion", {
+    send_to: "AW-17606506634/odjhCPaF0KIcEIrxt8tB"
+  });
+}
+
+renderSuccess();
+
       } catch (error) {
         showError("Something went wrong while sending your details. Please try again.");
       } finally {
